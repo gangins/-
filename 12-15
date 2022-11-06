@@ -1,0 +1,254 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO+5xH2AauezpIK5wAPM8KB",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/gangins/-/blob/main/12-15\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "id": "GV2mKpiZHx_z",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "752ef01d-aa09-411a-be3c-454201b92f24"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n",
+            "True\n",
+            "False\n"
+          ]
+        }
+      ],
+      "source": [
+        "def palindrome(s):\n",
+        "  qu = []\n",
+        "  st = []\n",
+        "  for x in s:\n",
+        "    if x.isalpha():\n",
+        "      qu.append(x.lower())\n",
+        "      st.append(x.lower())\n",
+        "\n",
+        "  while qu:\n",
+        "    if qu.pop(0) != st.pop():\n",
+        "      return False\n",
+        "\n",
+        "  return True\n",
+        "\n",
+        "  while qu :\n",
+        "    if qu.pop(0) != st.pop():\n",
+        "      return False\n",
+        "  \n",
+        "  return True\n",
+        "\n",
+        "print(palindrome(\"Wow\"))\n",
+        "print(palindrome(\"Madam, i'm Adam.\"))\n",
+        "print(palindrome(\"Madam, i am Adam.\"))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def palindrome(s):\n",
+        "  i=0\n",
+        "  j=len(s) -1\n",
+        "  while i<j:\n",
+        "    if s[i].isalpha() == False:\n",
+        "      i+=1\n",
+        "    elif s[j].isalpha() == False:\n",
+        "      j -= 1\n",
+        "\n",
+        "    elif s[i].lower() != s[j].lower():\n",
+        "      return False\n",
+        "    else:\n",
+        "      i += 1\n",
+        "      j -= 1\n",
+        "\n",
+        "  return True\n",
+        "\n",
+        "print(palindrome(\"Wow\"))\n",
+        "print(palindrome(\"Madam, i'm Adam.\"))\n",
+        "print(palindrome(\"Madam, i am Adam.\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Fja3EGt3eIlD",
+        "outputId": "b981f9be-2852-4e09-f347-dec792b9e17b"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n",
+            "True\n",
+            "False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def find_same_name(a):\n",
+        "\n",
+        "  name_dict = {}\n",
+        "  for name in a:\n",
+        "    if name in name_dict:\n",
+        "      name_dict[name] += 1\n",
+        "    else:\n",
+        "      name_dict[name] = 1\n",
+        "    \n",
+        "  result = set()\n",
+        "  for name in name_dict:\n",
+        "      if name_dict[name] >=2:\n",
+        "        result.add(name)\n",
+        "\n",
+        "  return result\n",
+        "\n",
+        "name = [\"Tom\", \"Jerry\", \"Mike\", \"Tom\"]\n",
+        "print(find_same_name(name))\n",
+        "\n",
+        "name2 = [\"Tom\", \"Jerry\", \"Mike\", \"Tom\", \"Mike\"]\n",
+        "print(find_same_name(name2))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8gRQq1vrfp1C",
+        "outputId": "d109bd62-ae3c-41e4-d6ab-3146a0b239bb"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'Tom'}\n",
+            "{'Tom', 'Mike'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def get_name(s_info, find_no):\n",
+        "  if find_no in s_info:\n",
+        "    return s_info[find_no]\n",
+        "  else: \n",
+        "    return \"?\"\n",
+        "\n",
+        "sample_info = {\n",
+        "      39: \"justin\",\n",
+        "      14: \"john\",\n",
+        "      67: \"mike\",\n",
+        "      105: \"summer\"\n",
+        "}\n",
+        "\n",
+        "print(get_name(sample_info, 105))\n",
+        "print(get_name(sample_info, 777))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MoH2CwTVmF3H",
+        "outputId": "b623644c-29e9-41c7-cfe4-ed5becf014c4"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "summer\n",
+            "?\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def bfs(g, start):\n",
+        "  qu = []\n",
+        "  done = set()\n",
+        "\n",
+        "  qu.append(start)\n",
+        "  done.add(start)\n",
+        "\n",
+        "  while qu:\n",
+        "    p = qu.pop(0)\n",
+        "    print(p)\n",
+        "    for x in g[p]:\n",
+        "      if x not in done:\n",
+        "        qu.append(x)\n",
+        "        done.add(x)\n",
+        "\n",
+        "g = {\n",
+        "    1 : [2,3],\n",
+        "    2 : [1,4,5],\n",
+        "    3 : [1],\n",
+        "    4 : [2],\n",
+        "    5 : [2]\n",
+        "}\n",
+        "\n",
+        "\n",
+        "bfs(g,1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xLVwb05Em9aG",
+        "outputId": "860d836c-e7b3-402f-b00a-a42dd5217451"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n",
+            "4\n",
+            "5\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
